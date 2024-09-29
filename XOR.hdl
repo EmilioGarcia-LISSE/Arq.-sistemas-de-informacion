@@ -1,0 +1,15 @@
+CHIP XOR{
+    IN a, b;
+    OUT out;
+
+    PARTS:
+
+    NOT(in=a , out=NOTa );
+    NOT(in=b , out=NOTb );
+
+    AND(a=NOTa , b=b , out=NOTab);
+    AND(a=NOTb , b=a , out=NOTba);
+    
+    OR(a=NOTab , b=NOTba , out=out  );
+
+}

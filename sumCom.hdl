@@ -1,0 +1,13 @@
+CHIP sumCom{
+    IN a, b, c;
+    OUT sum, carry;
+
+    PARTS:
+    medSum(a=c, b=a, sum=s0, carry=c0);
+    medSum(a=s0, b=b, sum=sum, carry=c1);
+
+    OR(a=c0, b=c1, out=carry);
+
+
+
+}

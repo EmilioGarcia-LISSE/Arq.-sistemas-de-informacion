@@ -1,0 +1,11 @@
+CHIP medSum{
+    IN a, b;
+    OUT sum, carry;
+
+    PARTS:
+    AND(a=a, b=b, out=carry);
+    XOR(a=a, b=b, out=sum);
+
+
+
+}
