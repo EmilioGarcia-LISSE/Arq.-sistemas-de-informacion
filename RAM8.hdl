@@ -1,0 +1,19 @@
+CHIP RAM8 {
+    IN in[16], load, address[3];
+    OUT out[16];
+
+    PARTS:
+    //para facilitar se usaran los Builtin chips 
+    DMux8Way(in=load, sel=address, a=load0, b=load1, c=load2, d=load3, e=load4, f=load5, g=load6,h=load7);
+
+    REG(in=in, load=load0, out=out0);
+    REG(in=in, load=load1, out=out1);
+    REG(in=in, load=load2, out=out2);
+    REG(in=in, load=load3, out=out3);
+    REG(in=in, load=load4, out=out4);
+    REG(in=in, load=load5, out=out5);
+    REG(in=in, load=load6, out=out6);
+    REG(in=in, load=load7, out=out7);
+
+    Mux8Way16(a=out0,  b=out1,  c=out2,  d=out3,  e=out4,  f=out5,  g=out6,  h=out7,  sel=address,  out=out);
+}
