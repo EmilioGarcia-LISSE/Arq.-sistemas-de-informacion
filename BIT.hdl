@@ -1,0 +1,10 @@
+CHIP BIT {
+    IN in, load;
+    OUT out;
+
+    //DFF = Flip Flop builtin chip
+
+    PARTS:
+    MUX(a=dffOut, b=in, sel=load, out=muxOut);
+    DFF(in=muxOut, out=dffOut, out=out);
+}
