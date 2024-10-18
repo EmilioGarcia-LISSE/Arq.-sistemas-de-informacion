@@ -1,0 +1,15 @@
+CHIP PC {
+    IN in[16],load,inc,reset;
+    OUT out[16];
+
+    PARTS:
+
+  
+    Inc16(in=ultVal, out=incremented);
+
+    MUX16(a=ultVal, b=incremented, sel=inc, out=w1);
+    MUX16(a=w1, b=in, sel=load, out=w2);
+    MUX16(a=w2, b=false, sel=reset, out=w3);
+        
+    REG(in=w3, load=true, out=out, out=ultval);
+}
